@@ -1,0 +1,20 @@
+# Conservative local Codex settings for a trusted repo.
+
+[project]
+name = "drkafasis-site"
+
+[defaults]
+confirm_before_destructive = true
+prefer_targeted_changes = true
+respect_existing_structure = true
+
+[paths]
+theme_root = "theme/drkafasis-betheme-audit"
+blog_root = "blog"
+site_root = "site"
+automation_root = "automation"
+
+[guards]
+disallow_production_actions = true
+disallow_deploy_actions = true
+disallow_nested_repo_restoration = true

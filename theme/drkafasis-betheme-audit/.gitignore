@@ -1,0 +1,21 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# VS Code local settings
+.vscode/
+
+# Logs / temp
+*.log
+*.tmp
+
+# Archives
+*.zip
+*.tar
+*.gz
+*.rar
+
+# Database dumps
+*.sql
+*.sql.txt

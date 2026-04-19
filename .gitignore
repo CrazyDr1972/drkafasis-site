@@ -1,0 +1,30 @@
+# OS noise
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# Temporary folders
+tmp/
+temp/
+output/
+exports/
+generated/
+backup/
+backups/
+
+# Editor and IDE noise
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+# Dependency and build caches
+node_modules/
+__pycache__/
+*.pyc
+
