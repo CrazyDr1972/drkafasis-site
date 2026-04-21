@@ -110,7 +110,13 @@ function betheme_child_get_blog_archive_search_markup() {
 
 	$markup  = '<div class="betheme-child-blog-search">';
 	$markup .= '<h3 class="betheme-child-blog-search__title">' . esc_html__( 'Αναζήτηση άρθρων', 'betheme-child' ) . '</h3>';
-	$markup .= get_search_form( false );
+	$markup .= '<form class="betheme-child-blog-search__form" role="search" method="get" action="' . esc_url( home_url( '/' ) ) . '">';
+	$markup .= '<label class="screen-reader-text" for="betheme-child-blog-search-field">' . esc_html__( 'Αναζήτηση άρθρων', 'betheme-child' ) . '</label>';
+	$markup .= '<input id="betheme-child-blog-search-field" class="betheme-child-blog-search__field" type="search" name="s" placeholder="' . esc_attr__( 'Αναζήτηση άρθρων...', 'betheme-child' ) . '" value="' . esc_attr( get_search_query() ) . '">';
+	$markup .= '<input type="hidden" name="post_type" value="post">';
+	$markup .= '<input type="hidden" name="betheme_child_blog_search" value="1">';
+	$markup .= '<button class="betheme-child-blog-search__submit" type="submit">' . esc_html__( 'Αναζήτηση', 'betheme-child' ) . '</button>';
+	$markup .= '</form>';
 	$markup .= '</div>';
 
 	return $markup;
