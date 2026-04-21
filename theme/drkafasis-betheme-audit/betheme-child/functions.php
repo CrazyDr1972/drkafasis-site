@@ -597,3 +597,33 @@ function betheme_child_limit_blog_search_to_posts( $query ) {
 	$query->set( 'post_type', 'post' );
 }
 add_action( 'pre_get_posts', 'betheme_child_limit_blog_search_to_posts', 20 );
+
+/**
+ * Show the mobile number below the landline menu item in the header.
+ *
+ * @param string   $item_output The menu item's starting HTML.
+ * @param WP_Post  $item        Menu item data object.
+ * @param int      $depth       Menu item depth.
+ * @param stdClass $args        Menu arguments.
+ * @return string
+ */
+function betheme_child_header_phone_menu_item( $item_output, $item, $depth, $args ) {
+	$landline        = '2107793711';
+	$mobile          = '6945892016';
+	$landline_label  = '210-77.93.711';
+	$mobile_label    = '694-58.92.016';
+	$normalized_url  = preg_replace( '/\D+/', '', (string) $item->url );
+	$normalized_text = preg_replace( '/\D+/', '', wp_strip_all_tags( $item->title ) );
+
+	if ( $landline !== $normalized_url && $landline !== $normalized_text ) {
+		return $item_output;
+	}
+
+	$output  = '<a href="' . esc_url( 'tel:' . $landline ) . '" class="betheme-child-header-phone">';
+	$output .= '<span class="betheme-child-header-phone__landline">' . esc_html( $landline_label ) . '</span>';
+	$output .= '<span class="betheme-child-header-phone__mobile">' . esc_html( $mobile_label ) . '</span>';
+	$output .= '</a>';
+
+	return $output;
+}
+add_filter( 'walker_nav_menu_start_el', 'betheme_child_header_phone_menu_item', 10, 4 );
